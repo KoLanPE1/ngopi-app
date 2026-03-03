@@ -1,0 +1,241 @@
+/* KoLAnPE Ngerumpi - App Styles */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section z-index stacking */
+#hero {
+  z-index: 10;
+}
+
+#why-join {
+  z-index: 20;
+}
+
+#product-fashion {
+  z-index: 30;
+}
+
+#product-accessories {
+  z-index: 40;
+}
+
+#product-motor {
+  z-index: 50;
+}
+
+#community {
+  z-index: 60;
+}
+
+#events {
+  z-index: 70;
+}
+
+#programs {
+  z-index: 80;
+}
+
+#join-form {
+  z-index: 90;
+}
+
+#footer {
+  z-index: 100;
+}
+
+/* Ensure pinned sections stack correctly */
+.section-pinned {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .section-pinned {
+    min-height: 100vh;
+    height: auto;
+  }
+  
+  .heading-display {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+  }
+  
+  .heading-section {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+  }
+}
+
+/* Animation utilities */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(215, 255, 59, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(215, 255, 59, 0.6);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* Neon text effect */
+.neon-text {
+  text-shadow: 0 0 10px rgba(215, 255, 59, 0.5),
+               0 0 20px rgba(215, 255, 59, 0.3),
+               0 0 30px rgba(215, 255, 59, 0.2);
+}
+
+/* Card hover glow */
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(215, 255, 59, 0.15);
+}
+
+/* Image hover zoom */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Sticker animations */
+@keyframes sticker-pop {
+  0% {
+    transform: scale(0) rotate(-20deg);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1) rotate(5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+.sticker-animate {
+  animation: sticker-pop 0.5s ease-out forwards;
+}
+
+/* Button ripple effect */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.btn-ripple:active::after {
+  width: 200%;
+  height: 200%;
+}
+
+/* Form focus states */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(215, 255, 59, 0.3);
+  color: #F4F4F5;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #141416;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D7FF3B;
+}
+
+/* Hide scrollbar on mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Prevent horizontal scroll */
+body {
+  overflow-x: hidden;
+}
+
+/* Loading state */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    #141416 25%,
+    #1a1a1c 50%,
+    #141416 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

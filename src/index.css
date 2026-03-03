@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4.7%;
+    --foreground: 240 5% 96%;
+    --card: 240 4% 8%;
+    --card-foreground: 240 5% 96%;
+    --popover: 240 4% 8%;
+    --popover-foreground: 240 5% 96%;
+    --primary: 75 100% 61%;
+    --primary-foreground: 0 0% 4.7%;
+    --secondary: 240 4% 12%;
+    --secondary-foreground: 240 5% 96%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 4% 68%;
+    --accent: 75 100% 61%;
+    --accent-foreground: 0 0% 4.7%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 18%;
+    --input: 240 4% 18%;
+    --ring: 75 100% 61%;
+    --radius: 0.625rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-kolanpe-black text-kolanpe-white font-body antialiased;
+    overflow-x: hidden;
+  }
+  
+  ::selection {
+    background: rgba(215, 255, 59, 0.3);
+    color: #F4F4F5;
+  }
+}
+
+@layer components {
+  /* Grain Overlay */
+  .grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+  
+  /* Neon Button */
+  .btn-neon {
+    @apply relative px-6 py-3 bg-transparent border-2 border-kolanpe-lime text-kolanpe-lime font-display font-bold uppercase tracking-wider;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-neon:hover {
+    @apply bg-kolanpe-lime text-kolanpe-black;
+    box-shadow: 0 0 25px rgba(215, 255, 59, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  .btn-neon:active {
+    transform: scale(0.98);
+  }
+  
+  /* Filled Neon Button */
+  .btn-neon-filled {
+    @apply relative px-6 py-3 bg-kolanpe-lime text-kolanpe-black font-display font-bold uppercase tracking-wider;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-neon-filled:hover {
+    box-shadow: 0 0 30px rgba(215, 255, 59, 0.6);
+    transform: translateY(-2px);
+  }
+  
+  /* Card Styles */
+  .card-kolanpe {
+    @apply bg-kolanpe-charcoal border border-kolanpe-charcoal;
+    transition: all 0.3s ease;
+  }
+  
+  .card-kolanpe:hover {
+    @apply border-kolanpe-lime;
+    transform: translateY(-4px);
+  }
+  
+  /* Sticker Styles */
+  .sticker {
+    @apply absolute pointer-events-none;
+  }
+  
+  .sticker-starburst {
+    @apply flex items-center justify-center bg-kolanpe-lime text-kolanpe-black font-display font-bold;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  
+  /* Section Base */
+  .section-pinned {
+    @apply relative w-screen h-screen overflow-hidden;
+  }
+  
+  .section-flowing {
+    @apply relative w-full py-20;
+  }
+  
+  /* Typography */
+  .heading-display {
+    @apply font-display font-black uppercase tracking-tight leading-none;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+  }
+  
+  .heading-section {
+    @apply font-display font-bold uppercase tracking-tight;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+  }
+  
+  .text-micro {
+    @apply font-mono text-xs uppercase tracking-widest text-kolanpe-gray;
+  }
+  
+  /* Scroll Reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+  }
+  
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Form Inputs */
+  .input-kolanpe {
+    @apply w-full px-4 py-3 bg-kolanpe-black border border-kolanpe-charcoal text-kolanpe-white placeholder-kolanpe-gray;
+    transition: all 0.3s ease;
+  }
+  
+  .input-kolanpe:focus {
+    @apply border-kolanpe-lime outline-none;
+    box-shadow: 0 0 10px rgba(215, 255, 59, 0.2);
+  }
+  
+  /* Gradient Text */
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #D7FF3B 0%, #2EC3E5 100%);
+  }
+  
+  /* Lime Border Accent */
+  .border-lime-accent {
+    border-left: 3px solid #D7FF3B;
+    border-bottom: 3px solid #D7FF3B;
+  }
+  
+  /* WhatsApp Float Button */
+  .whatsapp-float {
+    @apply fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-green-500 rounded-full text-white shadow-lg;
+    transition: all 0.3s ease;
+  }
+  
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
+  }
+  
+  /* Product Card */
+  .product-card {
+    @apply relative bg-kolanpe-charcoal rounded-lg overflow-hidden;
+    transition: all 0.4s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+  
+  .product-card:hover .product-image {
+    transform: scale(1.05);
+  }
+  
+  .product-image {
+    transition: transform 0.4s ease;
+  }
+  
+  /* Community Card */
+  .community-card {
+    @apply relative p-6 bg-kolanpe-charcoal rounded-xl border border-transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .community-card:hover {
+    @apply border-kolanpe-lime;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(215, 255, 59, 0.1);
+  }
+  
+  /* Event Card */
+  .event-card {
+    @apply relative overflow-hidden rounded-lg bg-kolanpe-charcoal;
+    transition: all 0.3s ease;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .event-card:hover .event-image {
+    transform: scale(1.05);
+  }
+  
+  .event-image {
+    transition: transform 0.5s ease;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0B0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #141416;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D7FF3B;
+}
+
+/* Hide scrollbar for mobile */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
